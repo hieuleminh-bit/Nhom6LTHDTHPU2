@@ -1,0 +1,17 @@
+# test 
+1 Sự kế thừa (Inheritance)
+-Theo sline :
+* Cho phép lẫn dẫn xuất có thể sử dụng các thuộc tính và phương thức của lớp cơ sở.
+* Cho phép việc chỉ cần cài đặt phương thức ở một lớp cơ sở , mà có thể sử dụng được tất cả cấc lớp.
+* Cho phép tránh sự cài đặt trùng lặp mã nguồn của chương trình.
+* Cho phép chỉ phải thay đổi một lần khi cần phải thay đổi dữ liệu của các lớp.
+= Ví dụ trên sline :
++ Ấn phẩm là lớp cơ sở, có các lớp dẫn xuất:
++ tạp chí
++ sách
+
+2. Sự đóng gói
+- Theo đúng sline:
+* Cho phép che dấu sự cài đặt chi tiết bên trong của phương thức.
+* Cho phép che dấu dữ liệu bên trong của đối tượng.
+* Cho phép hạn chế tối đa việc sửa lại mã chương trình.
