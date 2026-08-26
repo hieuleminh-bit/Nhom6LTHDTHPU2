@@ -1,0 +1,44 @@
+Trừu tượng hóa đối tượng theo dữ liệu:
+Trong lập trình hướng đối tượng (OOP), trừu tượng hóa là quá trình chỉ tập trung vào những đặc điểm quan trọng của đối tượng và ẩn đi những chi tiết không cần thiết.
+
+1. Trừu tượng hóa theo dữ liệu là gì?
+Trừu tượng hóa đối tượng theo dữ liệu là việc mô hình hóa một đối tượng dựa trên những dữ liệu/thuộc tính cần thiết để mô tả đối tượng đó.
+
+Ví dụ, khi xây dựng đối tượng Sinh viên, ta không cần mô tả tất cả thông tin về một người. Chỉ cần những dữ liệu phục vụ cho chương trình:
+
+SinhVien
+├── maSinhVien
+├── hoTen
+├── ngaySinh
+└── diemTrungBinh
+
+Ta có thể cài đặt:
+
+class SinhVien {
+    private String maSinhVien;
+    private String hoTen;
+    private String ngaySinh;
+    private double diemTrungBinh;
+}
+
+Ở đây, maSinhVien, hoTen, ngaySinh, diemTrungBinh là dữ liệu/thuộc tính của đối tượng SinhVien.
+
+2. Ví dụ thực tế
+Đối tượng Ô tô có thể được trừu tượng hóa thành:
+
+Oto
+├── hangXe
+├── mauSac
+├── tocDo
+└── namSanXuat
+
+Không cần quan tâm đến từng chi tiết bên trong động cơ nếu chương trình chỉ cần quản lý thông tin cơ bản của ô tô.
+
+3. Ý nghĩa
+Trừu tượng hóa theo dữ liệu giúp:
+
+Đơn giản hóa đối tượng, chỉ giữ thông tin cần thiết.
+Giảm độ phức tạp của chương trình.
+Dễ quản lý và bảo vệ dữ liệu.
+Giúp mô hình đối tượng gần với các đối tượng thực tế.
+Là cơ sở để xây dựng class và object trong OOP.
