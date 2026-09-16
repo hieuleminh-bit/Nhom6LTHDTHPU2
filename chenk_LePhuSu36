@@ -1,0 +1,12 @@
+void M1C::chenk(int k) {
+    int x;
+    cout << "Nhap gia tri can chen: ";
+    cin >> x;
+
+    for (int i = spt; i > k; i--) {
+        a[i] = a[i - 1];
+    }
+
+    a[k] = x;
+    spt++;
+}
