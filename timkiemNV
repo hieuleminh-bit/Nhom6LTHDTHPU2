@@ -1,0 +1,30 @@
+  void timKiemTheoMa() const {
+        if (dsNV.empty()) {
+            cout << "Danh sach rong!\n";
+            return;
+        }
+        string maTim;
+        cout << "\nNhap ma nhan vien can tim: ";
+        cin.ignore();
+        getline(cin, maTim);
+
+        bool timThay = false;
+        for (const auto& nv : dsNV) {
+            if (nv.getMaNV() == maTim) {
+                cout << "\n--- Thong tin nhan vien tim thay ---\n";
+                cout << left << setw(12) << "Ma NV"
+                     << setw(25) << "Ho Ten"
+                     << setw(18) << "Phong Ban"
+                     << setw(12) << "HS Luong"
+                     << setw(15) << "Ngay Cong"
+                     << setw(18) << "Luong Thuc Linh (VND)" << "\n";
+                cout << string(100, '-') << "\n";
+                nv.xuat();
+                timThay = true;
+                break;
+            }
+        }
+        if (!timThay) {
+            cout << "Khong tim thay nhan vien co ma: " << maTim << "\n";
+        }
+    }
