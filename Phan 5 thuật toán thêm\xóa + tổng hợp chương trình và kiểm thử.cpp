@@ -1,91 +1,107 @@
- void boSungNhanVien() {
-        if (dsNV.size() >= 199) {
-            cout << "Danh sach da dat gioi han toi da (200 nhan vien)!\n";
-            return;
-        }
-        int pos;
-        cout << "\nNhap vi tri can chen (0 den " << dsNV.size() << "): ";
-        cin >> pos;
-
-        if (pos < 0 || pos > static_cast<int>(dsNV.size())) {
-            cout << "Vi tri chen khong hop le!\n";
+ void boSung() {
+        if (n >= 199) {
+            cout << "Danh sach da day!\n";
             return;
         }
 
-        NhanVien nvMoi;
-        cout << "\n--- Nhap thong tin nhan vien moi ---\n";
-        nvMoi.nhap();
+        int viTri;
+        cout << "\nNhap vi tri can bo sung (1 - " << n + 1 << "): ";
+        cin >> viTri;
 
-        dsNV.insert(dsNV.begin() + pos, nvMoi);
-        cout << "Da them nhan vien vao vi tri " << pos << " thanh cong!\n";
+        if (viTri < 1 || viTri > n + 1) {
+            cout << "Vi tri khong hop le!\n";
+            return;
+        }
+
+        for (int i = n; i >= viTri; i--) {
+            ds[i] = ds[i - 1];
+        }
+
+        cout << "\nNhap thong tin nhan vien can bo sung:\n";
+        ds[viTri - 1].nhap();
+
+        n++;
+
+        cout << "Bo sung thanh cong!\n";
     }
 
-    void xoaNhanVien() {
-        if (dsNV.empty()) {
-            cout << "Danh sach rong, khong thiet lap xoa!\n";
-            return;
-        }
-        int pos;
-        cout << "\nNhap vi tri can xoa (0 den " << dsNV.size() - 1 << "): ";
-        cin >> pos;
-
-        if (pos < 0 || pos >= static_cast<int>(dsNV.size())) {
-            cout << "Vi tri xoa khong hop le!\n";
+    void xoa() {
+        if (n == 0) {
+            cout << "Danh sach rong!\n";
             return;
         }
 
-        dsNV.erase(dsNV.begin() + pos);
-        cout << "Da xoa nhan vien tai vi tri " << pos << " thanh cong!\n";
+        int viTri;
+        cout << "\nNhap vi tri can xoa (1 - " << n << "): ";
+        cin >> viTri;
+
+        if (viTri < 1 || viTri > n) {
+            cout << "Vi tri khong hop le!\n";
+            return;
+        }
+
+        for (int i = viTri - 1; i < n - 1; i++) {
+            ds[i] = ds[i + 1];
+        }
+
+        n--;
+
+        cout << "Xoa thanh cong!\n";
     }
 };
 
-void hienThiMenu() {
-    cout << "\n================= CHUONG TRINH QUAN LY NHAN VIEN =================\n";
-    cout << "1. Nhap danh sach nhan vien\n";
-    cout << "2. In danh sach nhan vien\n";
-    cout << "3. Sap xep danh sach theo luong thuc linh giam dan\n";
-    cout << "4. Tim kiem nhan vien theo ma\n";
-    cout << "5. Bo sung 1 nhan vien vao vi tri bat ky\n";
-    cout << "6. Xoa 1 nhan vien tai vi tri bat ky\n";
-    cout << "0. Thoat chuong trinh\n";
-    cout << "==================================================================\n";
-    cout << "Chon thao tac (0-6): ";
-}
 
 int main() {
-    QuanLyNhanVien qlnv;
+    QuanLyNhanVien ql;
     int luaChon;
 
     do {
-        hienThiMenu();
+        cout << "\n========== QUAN LY NHAN VIEN ==========\n";
+        cout << "1. Nhap danh sach nhan vien\n";
+        cout << "2. In danh sach nhan vien\n";
+        cout << "3. Sap xep theo luong giam dan\n";
+        cout << "4. Tim kiem theo ma nhan vien\n";
+        cout << "5. Bo sung nhan vien\n";
+        cout << "6. Xoa nhan vien\n";
+        cout << "0. Thoat\n";
+        cout << "=======================================\n";
+
+        cout << "Nhap lua chon: ";
         cin >> luaChon;
 
         switch (luaChon) {
-            case 1:
-                qlnv.nhapDanhSach();
-                break;
-            case 2:
-                qlnv.inDanhSach();
-                break;
-            case 3:
-                qlnv.sapXepGiamDanTheoLuong();
-                qlnv.inDanhSach();
-                break;
-            case 4:
-                qlnv.timKiemTheoMa();
-                break;
-            case 5:
-                qlnv.boSungNhanVien();
-                break;
-            case 6:
-                qlnv.xoaNhanVien();
-                break;
-            case 0:
-                cout << "Da thoat chuong trinh. Cam on ban!\n";
-                break;
-            default:
-                cout << "Lua chon khong hop le! Vui long chon lai.\n";
+        case 1:
+            ql.nhapDanhSach();
+            break;
+
+        case 2:
+            ql.xuatDanhSach();
+            break;
+
+        case 3:
+            ql.sapXepLuongGiamDan();
+            break;
+
+        case 4:
+            ql.timKiem();
+            break;
+
+        case 5:
+            ql.boSung();
+            break;
+
+        case 6:
+            ql.xoa();
+            break;
+
+        case 0:
+            cout << "Ket thuc chuong trinh!\n";
+            break;
+
+        default:
+            cout << "Lua chon khong hop le!\n";
         }
+
     } while (luaChon != 0);
 
     return 0;
